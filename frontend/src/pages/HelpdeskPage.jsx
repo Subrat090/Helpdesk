@@ -54,16 +54,39 @@ function HelpdeskPage() {
     }
   }, [activeSection, labels]);
 
+  const pickLocalizedField = (scheme, base) => {
+    if (language === "or") {
+      return (
+        scheme?.[`${base}_or`] ??
+        scheme?.[`${base}_hi`] ??
+        scheme?.[`${base}_en`] ??
+        scheme?.[base] ??
+        ""
+      );
+    }
+    if (language === "hi") {
+      return (
+        scheme?.[`${base}_hi`] ??
+        scheme?.[`${base}_en`] ??
+        scheme?.[`${base}_or`] ??
+        scheme?.[base] ??
+        ""
+      );
+    }
+    return (
+      scheme?.[`${base}_en`] ??
+      scheme?.[`${base}_hi`] ??
+      scheme?.[`${base}_or`] ??
+      scheme?.[base] ??
+      ""
+    );
+  };
+
   const formatRecommendations = (recommendations) =>
     recommendations
       .map((scheme, index) => {
-        const name =
-          scheme?.name_hi || scheme?.name_en || scheme?.name_or || "Scheme";
-        const description =
-          scheme?.description_hi ||
-          scheme?.description_en ||
-          scheme?.description_or ||
-          "";
+        const name = pickLocalizedField(scheme, "name") || labels.schemeFallback;
+        const description = pickLocalizedField(scheme, "description") || "";
         const score =
           typeof scheme?.recommendationScore === "number"
             ? scheme.recommendationScore
@@ -72,7 +95,7 @@ function HelpdeskPage() {
           ? scheme.recommendationReasons.join(" ")
           : "";
 
-        return `${index + 1}. ${name}\n   - ${description}\n   - Match score: ${score}\n   - Why: ${reasons}`;
+        return `${index + 1}. ${name}\n   - ${description}\n   - ${labels.matchScore}: ${score}\n   - ${labels.why}: ${reasons}`;
       })
       .join("\n\n");
 
@@ -85,14 +108,14 @@ function HelpdeskPage() {
       const text = formatRecommendations(data.recommendations || []);
       const modeLine =
         data.mode === "pro"
-          ? "Mode: Pro (All schemes - local)"
-          : "Mode: Rules (All schemes - local)";
+          ? labels.modeProLocal
+          : labels.modeRulesLocal;
       const botMessage = {
         id: Date.now() + 10,
         role: "bot",
         text: text
-          ? `Best schemes for your profile:\n${modeLine}\n\n${text}`
-          : "No recommendations found.",
+          ? `${labels.bestSchemesTitle}\n${modeLine}\n\n${text}`
+          : labels.noRecommendations,
       };
       setMessages((prev) => [...prev, botMessage]);
     } catch (requestError) {
