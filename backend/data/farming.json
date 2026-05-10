@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "name": "Soil Testing Before Sowing",
+    "description": "Test soil every 2-3 years to know nutrient status and pH.",
+    "season": "All seasons"
+  },
+  {
+    "id": 2,
+    "name": "Use Certified Seeds",
+    "description": "Buy certified seeds to improve germination and crop yield.",
+    "season": "Kharif and Rabi"
+  },
+  {
+    "id": 3,
+    "name": "Drip Irrigation for Water Saving",
+    "description": "Use drip or sprinkler systems to reduce water use in dry regions.",
+    "season": "Summer and low-rainfall areas"
+  },
+  {
+    "id": 4,
+    "name": "Integrated Pest Management",
+    "description": "Use pheromone traps, neem spray, and limited pesticide rotation.",
+    "season": "All seasons"
+  },
+  {
+    "id": 5,
+    "name": "Crop Rotation",
+    "description": "Rotate cereals with pulses to improve soil fertility naturally.",
+    "season": "Year-round planning"
+  },
+  {
+    "id": 6,
+    "name": "Mulching for Moisture Retention",
+    "description": "Use organic mulch to reduce evaporation and suppress weeds.",
+    "season": "Summer"
+  }
+]

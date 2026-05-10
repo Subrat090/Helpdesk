@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "title": "Village Revenue Assistant",
+    "department": "Revenue Department",
+    "qualification": "12th Pass",
+    "lastDate": "2026-06-15",
+    "description": "Field-level support for revenue records and citizen services."
+  },
+  {
+    "id": 2,
+    "title": "Anganwadi Worker",
+    "department": "Women and Child Development",
+    "qualification": "10th Pass",
+    "lastDate": "2026-05-30",
+    "description": "Support nutrition and early childhood services in villages."
+  },
+  {
+    "id": 3,
+    "title": "Gram Panchayat Assistant",
+    "department": "Rural Development",
+    "qualification": "Graduate",
+    "lastDate": "2026-06-20",
+    "description": "Assist Panchayat office in administrative and digital tasks."
+  },
+  {
+    "id": 4,
+    "title": "State Police Constable",
+    "department": "Home Department",
+    "qualification": "12th Pass",
+    "lastDate": "2026-07-05",
+    "description": "General duty constable recruitment for district postings."
+  },
+  {
+    "id": 5,
+    "title": "Rural Post Office GDS",
+    "department": "India Post",
+    "qualification": "10th Pass",
+    "lastDate": "2026-05-25",
+    "description": "Branch post office and delivery support roles."
+  },
+  {
+    "id": 6,
+    "title": "Junior Agriculture Assistant",
+    "department": "Agriculture Department",
+    "qualification": "Diploma in Agriculture",
+    "lastDate": "2026-06-10",
+    "description": "Support farmers with extension activities and field data."
+  }
+]
