@@ -25,8 +25,8 @@ export const fetchLatestSchemes = async (limit) => {
 };
 
 export const getSchemeRecommendations = async (profile, limit = 10) => {
-  // Local-only modes: "rules" (all schemes) and "pro" (our selected schemes).
-  const mode = profile?.pro ? "pro" : "rules";
+  // Local-only modes: "rules" (heuristics) and "ml" (local ML ranking).
+  const mode = profile?.pro ? "ml" : "rules";
   const response = await fetch("/api/schemes/recommend", {
     method: "POST",
     headers: { "Content-Type": "application/json" },

@@ -1,5 +1,6 @@
 const { loadJson } = require("../utils/dataLoader");
 const { geminiGenerateContent } = require("../utils/geminiClient");
+const { predictIntentML } = require("../utils/mlIntent");
 const {
   getLatestSchemes,
   getProfileRecommendations,
@@ -83,6 +84,12 @@ const recommendationQueryWords = [
 ];
 
 const detectIntent = (query) => {
+  // Local ML intent detection first; fall back to keyword rules if not confident.
+  const ml = predictIntentML(query);
+  if (ml?.label && ml.confidence >= 0.45) {
+    return ml.label;
+  }
+
   const normalized = query.toLowerCase();
 
   if (

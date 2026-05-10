@@ -1,5 +1,6 @@
 const { loadJson } = require("./dataLoader");
 const { geminiGenerateContent } = require("./geminiClient");
+const { recommendSchemesML } = require("./mlSchemeRecommender");
 
 const toNumber = (value) => {
   if (value === null || value === undefined || value === "") return null;
@@ -108,6 +109,10 @@ const getProfileRecommendations = (profile = {}, limit = 5, options = {}) => {
   const age = toNumber(profile.age);
   const income = toNumber(profile.income);
   const gender = normalizeGender(profile.gender);
+
+  if (mode === "ml") {
+    return recommendSchemesML({ age, income, gender }, schemes, limit);
+  }
 
   const scored = schemes.map((scheme) => {
     let score = 0;

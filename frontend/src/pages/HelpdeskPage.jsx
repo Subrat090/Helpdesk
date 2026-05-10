@@ -107,8 +107,8 @@ function HelpdeskPage() {
       const data = await getSchemeRecommendations(schemeProfile, 10);
       const text = formatRecommendations(data.recommendations || []);
       const modeLine =
-        data.mode === "pro"
-          ? labels.modeProLocal
+        data.mode === "ml"
+          ? labels.modeMlLocal
           : labels.modeRulesLocal;
       const botMessage = {
         id: Date.now() + 10,

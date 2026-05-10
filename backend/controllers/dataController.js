@@ -41,7 +41,8 @@ const recommendSchemes = async (req, res, next) => {
 
     const profile = { name, age, income, gender };
     const normalizedMode = String(mode || "").toLowerCase();
-    const effectiveMode = normalizedMode === "pro" ? "pro" : "rules";
+    const effectiveMode =
+      normalizedMode === "pro" ? "pro" : normalizedMode === "ml" ? "ml" : "rules";
     const recommendations = getProfileRecommendations(profile, topN, {
       mode: effectiveMode,
     });
